@@ -37,6 +37,11 @@ public class SensorController {
         this.sensorValidator = sensorValidator;
     }
 
+    @GetMapping
+    public String sayHello() {
+        return "HELLO NADIR";
+    }
+
     @GetMapping("/sensors")
     public List<SensorDTO> getSensors() {
         return sensorService.getSensors()

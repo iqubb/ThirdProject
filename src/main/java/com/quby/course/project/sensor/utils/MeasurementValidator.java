@@ -26,7 +26,7 @@ public class MeasurementValidator implements Validator {
     @Override
     public void validate(Object target, Errors errors) {
         Measurement measurement = (Measurement) target;
-        if(sensorService.getSensorByName(measurement.getSensor().getName()).isEmpty()) {
+        if(!sensorService.getSensorByName(measurement.getSensor().getName()).isPresent()) {
             errors.rejectValue("sensor", "Sensor " + measurement.getSensor().getName() + "is not registered");
         }
     }
